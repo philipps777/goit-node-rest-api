@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
+import Contact from "../models/contactModel.js";
 
 const contactsPath = resolve("db", "contacts.json");
 
