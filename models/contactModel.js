@@ -26,13 +26,13 @@ import  sequelize  from "../config/database.js";
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
+    },
+    {
+        tableName: "contacts",
+        timestamps: true,
     }
-    // {
-    //     tableName: "contacts",
-    //     timestamps: true,
-    // }
-);
+   );
 
-Contact.sync();
+// Contact.sync();
 
 export default Contact;
