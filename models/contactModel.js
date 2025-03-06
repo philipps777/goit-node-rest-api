@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import  sequelize  from "../config/database.js";
+import { User } from "./userModel.js";
 
  const Contact = sequelize.define(
     "contact",
@@ -26,6 +27,10 @@ import  sequelize  from "../config/database.js";
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
+        owner: {
+            type: DataTypes.UUID,
+            allowNull: false,
+        },
     },
     {
         tableName: "contacts",
@@ -34,5 +39,9 @@ import  sequelize  from "../config/database.js";
    );
 
 // Contact.sync();
+
+
+User.hasMany(Contact, { foreignKey: "owner" });
+Contact.belongsTo(User, { foreignKey: "owner" });
 
 export default Contact;
