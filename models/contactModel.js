@@ -1,3 +1,4 @@
+
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 import { User } from "./userModel.js";
@@ -28,12 +29,8 @@ const Contact = sequelize.define(
             defaultValue: false,
         },
         owner: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
-            references: {
-                model: User,
-                key: "id",
-            },
         },
     },
     {
@@ -43,11 +40,9 @@ const Contact = sequelize.define(
 );
 
 
-User.hasMany(Contact, { foreignKey: "owner", onDelete: "CASCADE" });
-Contact.belongsTo(User, { foreignKey: "owner" });
-
-
 // Contact.sync();
 
-export default Contact;
+User.hasMany(Contact, { foreignKey: "owner" });
+Contact.belongsTo(User, { foreignKey: "owner" });
 
+export default Contact;
