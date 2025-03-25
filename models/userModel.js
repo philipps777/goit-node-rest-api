@@ -31,6 +31,14 @@ export const User = sequelize.define(
             type: DataTypes.STRING,
             allowNull: true,
         },
+        verify: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+        verificationToken: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     },
 
 );
@@ -41,3 +49,5 @@ export const User = sequelize.define(
 //     tableName: "users",
 //     timestamps: true,
 // }
+
+// f43cd4de-565d-44ee-92d8-852214e483b6
